@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras de Steam</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="contenedor-tarjetas">
+            <div class="tarjeta">
+                <img src="./img/stardew.jpg" alt="Stardew Valley">
+                <div class="contenido-tarjeta">
+                    <h2 class="titulo-tarjeta">Stardew Valley</h2>
+                    <p class="descripcion-tarjeta">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <p class="precio-tarjeta" data-precio="5">$5.00 USD</p>
+                    <button class="btn agregar-al-carrito" data-nombre="Stardew Valley" data-precio="5"
+                        data-moneda="USD">Comprar</button>
+                </div>
+            </div>
+    
+            <div class="tarjeta">
+                <img src="./img/red.jpg" alt="Red Dead Redemption 2">
+                <div class="contenido-tarjeta">
+                    <h2 class="titulo-tarjeta">Red Dead Redemption 2</h2>
+                    <p class="descripcion-tarjeta">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="precio-tarjeta" data-precio="60">$60.00 USD</p>
+                    <button class="btn agregar-al-carrito" data-nombre="Red Dead Redemption 2" data-precio="60"
+                        data-moneda="USD">Comprar</button>
+                </div>
+            </div>
+    
+            <div class="tarjeta">
+                <img src="./img/gta.jpg" alt="Grand Theft Auto V">
+                <div class="contenido-tarjeta">
+                    <h2 class="titulo-tarjeta">Grand Theft Auto V</h2>
+                    <p class="descripcion-tarjeta">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="precio-tarjeta" data-precio="40">$40.00 USD</p>
+                    <button class="btn agregar-al-carrito" data-nombre="Grand Theft Auto V" data-precio="40"
+                        data-moneda="USD">Comprar</button>
+                </div>
+            </div>
+    
+            <div class="tarjeta">
+                <img src="./img/re8.jpg" alt="Resident Evil 8">
+                <div class="contenido-tarjeta">
+                    <h2 class="titulo-tarjeta">Resident Evil 8</h2>
+                    <p class="descripcion-tarjeta">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="precio-tarjeta" data-precio="30">$30.00 USD</p>
+                    <button class="btn agregar-al-carrito" data-nombre="Resident Evil 8" data-precio="30"
+                        data-moneda="USD">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="carrito">
+        <h2>Carrito</h2>
+        <div class="contenido-carrito">
+            <span class="total">Total: $0.00 ARS</span>
+            <button class="btn vaciar-carrito">Vaciar Carrito</button>
+        </div>
+    </div>
+    
+    <!-- script de js -->
+    <script src="./js/main.js"></script>
+    </body>
+
+</html>
