@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const vaciarCarritoBtn = carrito.querySelector(".vaciar-carrito"); 
     const botonesAgregarAlCarrito = document.querySelectorAll(".agregar-al-carrito"); 
 
-    let elementosCarrito = []; // Arrays
+    let elementosCarrito = [];
     let modoOscuro = false; // Variable para almacenar el estado del modo oscuro
 
 // Botón para alternar entre modos de color
