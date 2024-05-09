@@ -1,10 +1,25 @@
+let data; // Defino data como una variable global
 document.addEventListener("DOMContentLoaded", function () {
 
+// Fetch para obtener los datos de los juegos desde el archivo JSON
+    fetch('./data/productos.json')
+        .then(response => response.json())
+        .then(jsonData => {
+            data = jsonData; // Asigno los datos del JSON a la variable global data porque sin esto me tiraba error
+
+            // Muestro los datos en la consola para verificar
+            console.log(data);
+
+            botonesAgregarAlCarrito.forEach(boton => {
+                boton.addEventListener("click", handleClick);
+            });
+        })
+        .catch(error => console.error('Error al obtener los datos de los juegos:', error));
 // Seleccionar el carrito y los elementos relacionados
 
     const carrito = document.querySelector(".carrito"); 
     const total = carrito.querySelector(".total"); 
-    const vaciarCarritoBtn = carrito.querySelector(".vaciar-carrito"); 
+    const botonVaciarCarrito = carrito.querySelector(".vaciar-carrito"); 
     const botonesAgregarAlCarrito = document.querySelectorAll(".agregar-al-carrito"); 
 
     let elementosCarrito = [];
@@ -15,7 +30,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const switchModo = document.createElement("button"); 
     switchModo.classList.add("switch-modo"); 
     switchModo.textContent = "Modo Oscuro"; 
-    document.body.appendChild(switchModo); 
+    document.body.appendChild(switchModo);
+    
+function handleClick(event) {
+    const boton = event.target;
+    const index = boton.dataset.index;
+    
+    // Verifico si data está definido y si el índice existe ahi
+    if (data && data[index]) {
+        const juego = data[index];
+
+        // Agregar el juego al carrito
+        agregarAlCarrito(juego.nombre, juego.precio, juego.moneda);
+        guardarElementosCarrito(); 
+        mostrarElementosCarrito();
+
+        // Elimino el evento en click para evitar que se agreguen 2 veces que era algo que me pasaba
+        boton.removeEventListener("click", handleClick);
+    } else {
+        console.error('Los datos no están disponibles o el índice especificado no existe en data.');
+    }
+}
 
 // Cargar carrito desde el almacenamiento local
 
@@ -40,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Vaciar carrito
 
-    vaciarCarritoBtn.addEventListener("click", () => {
+    botonVaciarCarrito.addEventListener("click", () => {
     elementosCarrito = [];
     guardarElementosCarrito();
     mostrarElementosCarrito();
@@ -133,16 +168,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Botón para finalizar la compra
 
-    let finalizarCompraBtn = document.querySelector(".finalizar-compra");
-    if (!finalizarCompraBtn) {
-        finalizarCompraBtn = document.createElement("button");
-        finalizarCompraBtn.classList.add("finalizar-compra", "btn-finalizar");
-        finalizarCompraBtn.textContent = "Finalizar Compra";
-        carrito.appendChild(finalizarCompraBtn);
+    let botonFinalizarCompra = document.querySelector(".finalizar-compra");
+    if (!botonFinalizarCompra) {
+        botonFinalizarCompra = document.createElement("button");
+        botonFinalizarCompra.classList.add("finalizar-compra", "btn-finalizar");
+        botonFinalizarCompra.textContent = "Finalizar Compra";
+        carrito.appendChild(botonFinalizarCompra);
 
 // Evento click en el botón "Finalizar Compra"
 
-        finalizarCompraBtn.addEventListener("click", () => {
+        botonFinalizarCompra.addEventListener("click", () => {
         finalizarCompra();
         });
     }

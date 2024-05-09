@@ -1,0 +1,22 @@
+[
+  {
+    "nombre": "Stardew Valley",
+    "precio": 5.00,
+    "moneda": "USD"
+  },
+  {
+    "nombre": "Red Dead Redemption 2",
+    "precio": 60.00,
+    "moneda": "USD"
+  },
+  {
+    "nombre": "Grand Theft Auto V",
+    "precio": 40.00,
+    "moneda": "USD"
+  },
+  {
+    "nombre": "Resident Evil 8",
+    "precio": 30.00,
+    "moneda": "USD"
+  }
+]
